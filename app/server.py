@@ -62,7 +62,7 @@ async def analyze(request):
     img = open_image(BytesIO(img_bytes))
     prediction = learn.predict(img)[0]
     acc = max(learn.predict(img)[2])
-    return JSONResponse({'result': str(prediction), 'prob': str(acc) })
+    return JSONResponse({'prob': str(acc) })
 
 
 if __name__ == '__main__':
