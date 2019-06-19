@@ -65,7 +65,7 @@ async def analyze(request):
     temp = learn.predict(img)[2]
     idx = np.argmax(learn.predict(img)[2])
     acc = temp[idx]
-    return JSONResponse({ 'result': str(prediction), 'acc': str(acc) })
+    return JSONResponse({ "result": prediction, "acc": acc })
 
 
 if __name__ == '__main__':
