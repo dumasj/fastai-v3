@@ -12,7 +12,7 @@ from starlette.staticfiles import StaticFiles
 export_file_url = 'https://drive.google.com/uc?export=download&id=1XAc-JRqCK2x6jGb27rdJMwwdoEvgcaCe'
 export_file_name = 'export.pkl'
 
-classes = ['air_jordan_1', 'air_jordan_4']
+classes = ['air_jordan_4', 'air_jordan_1', 'adidas_superstar', 'air_jordan_3', 'air_jordan_2', 'air_jordan_5', 'air_jordan_6', 'air_zoom_pegasus_35', 'asics_gel_contend_4', 'brooks_cascadia_13', 'converse_chuck_taylor_high', 'Lebron_13', 'Lebron_14', 'Lebron_15', 'Lebron_16', 'vans_old_skool']
 path = Path(__file__).parent
 
 app = Starlette()
