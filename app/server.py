@@ -64,10 +64,9 @@ async def analyze(request):
     img = open_image(BytesIO(img_bytes))
     prediction = learn.predict(img)[0]
     temp = learn.predict(img)[2]
-    idx = np.argmax(learn.predict(img)[2])
+    idx = np.argmax(temp)
     acc = temp[idx]
-    return JSONResponse({ 'result': str(prediction), 'acc': str(acc) })
-    #return PlainTextResponse('Hello,!')
+    return JSONResponse({'result': str(temp)})
 
 
 if __name__ == '__main__':
