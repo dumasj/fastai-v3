@@ -70,7 +70,7 @@ async def analyze(request):
     if acc>0.5:
         message = '%s with a probabilty of %.02f' % (prediction, acc)
     else:
-        message = 'No shoe found, please send us a request to add it to our database.'
+        message = 'No shoe found, please send us a request to add it to the database.'
     return JSONResponse({'result': str(message)})
 
 
