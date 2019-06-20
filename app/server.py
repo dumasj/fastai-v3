@@ -66,8 +66,11 @@ async def analyze(request):
     temp = learn.predict(img)[2]
     idx = np.argmax(temp)
     acc = temp[idx]
-    #message = 'not in database yet'
-    message = '%s with a probabilty of %f' % (prediction, acc)
+    
+    if acc>0.5:
+        message = '%s with a probabilty of %.02f' % (prediction, acc)
+    else:
+        message = 'No shoe found, please send us a request to add it to our database.'
     return JSONResponse({'result': str(message)})
 
 
