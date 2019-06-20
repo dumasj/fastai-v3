@@ -66,7 +66,8 @@ async def analyze(request):
     temp = learn.predict(img)[2]
     idx = np.argmax(temp)
     acc = temp[idx]
-    return JSONResponse({'result': str(temp)})
+    message = 'not in database yet'
+    return JSONResponse({'result': str(message)})
 
 
 if __name__ == '__main__':
