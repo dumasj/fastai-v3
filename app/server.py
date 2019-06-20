@@ -63,10 +63,10 @@ async def analyze(request):
     img_bytes = await (img_data['file'].read())
     img = open_image(BytesIO(img_bytes))
     prediction = learn.predict(img)[0]
-    temp = learn.predict(img)[2]
-    idx = np.argmax(temp)
+    idx = np.argmax(learn.predict(img)[2])
     acc = temp[idx]
-    message = 'not in database yet'
+    #message = 'not in database yet'
+    message = '%s with a probabilty of %f' % (prediction, acc)
     return JSONResponse({'result': str(message)})
 
 
