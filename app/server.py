@@ -6,7 +6,8 @@ from fastai.vision import *
 from io import BytesIO
 from starlette.applications import Starlette
 from starlette.middleware.cors import CORSMiddleware
-from starlette.responses import HTMLResponse, JSONResponse
+from starlette.responses import HTMLResponse, JSONResponse, PlainTextResponse
+
 from starlette.staticfiles import StaticFiles
 import numpy as np
 
@@ -66,7 +67,7 @@ async def analyze(request):
     idx = np.argmax(learn.predict(img)[2])
     acc = temp[idx]
     #return JSONResponse({ "result": str(prediction), "acc": str(acc) })
-    return 'Hello, World!'
+    return PlainTextResponse('Hello,!')
 
 
 if __name__ == '__main__':
