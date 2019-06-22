@@ -62,13 +62,16 @@ async def analyze(request):
     img_data = await request.form()
     img_bytes = await (img_data['file'].read())
     img = open_image(BytesIO(img_bytes))
+    
     prediction = learn.predict(img)[0]
     temp = learn.predict(img)[2]
     idx = np.argmax(temp)
     acc = temp[idx]
     
+    value = {'Lebron_13': (10, 12), 'Lebron_14': (10, 12), 'Lebron_15': (10, 12), 'Lebron_16': (10, 12), 'adidas_superstar': (10, 12), 'air_jordan_1': (10, 12), 'air_jordan_2': (10, 12), 'air_jordan_3': (10, 12), 'air_jordan_4': (10, 12), 'air_jordan_5': (10, 12), 'air_jordan_6': (10, 12), 'air_zoom_pegasus_35': (10, 12), 'asics_gel_contend_4': (10, 12), 'brooks_cascadia_13': (10, 12), 'converse_chuck_taylor_high': (10, 12), 'vans_old_skool': (10, 12)}
+
     if acc>0.5:
-        message = '%s with a probabilty of %.02f' % (prediction, acc)
+        message = '%s (probability %.02f), current market value is %.02f-%.02f USD.' % (prediction, acc, value[str(prediction)][0], value[str(prediction)][1])
     else:
         message = 'No shoe found, please send us a request to add it to the database.'
     return JSONResponse({'result': str(message)})
