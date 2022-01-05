@@ -71,7 +71,7 @@ async def analyze(request):
     value = {'Lebron_13': (100, 220), 'Lebron_14': (100, 280), 'Lebron_15': (120, 380), 'Lebron_16': (120, 300), 'adidas_superstar': (80, 150), 'air_jordan_1': (120, 500), 'air_jordan_2': (120, 400), 'air_jordan_3': (120, 420), 'air_jordan_4': (120, 500), 'air_jordan_5': (120, 450), 'air_jordan_6': (120, 320), 'air_zoom_pegasus_35': (50, 120), 'asics_gel_contend_4': (35, 59), 'brooks_cascadia_13': (85, 130), 'converse_chuck_taylor_high': (55, 200), 'vans_old_skool': (60, 200)}
     
     if acc>0.5:
-        message = '%s (probability %.02f), current market value is %.02f-%.02f USD.' % (prediction, acc, value[str(prediction)][0], value[str(prediction)][1])
+        message = '%s (probability %.02f), market value is %.02f-%.02f USD.' % (prediction, acc, value[str(prediction)][0], value[str(prediction)][1])
     else:
         message = 'No shoe found, please send us a request to add it to the database.'
     return JSONResponse({'result': str(message)})
